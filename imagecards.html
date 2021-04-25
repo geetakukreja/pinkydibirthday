@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Riya's A to Z</title>
+	<meta charset="UTF-8" />
+    <meta name="description" content="Happy Birthday">
+    <link rel="icon" type="image/png" href="./assets/cardpage.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    
+	<link rel="stylesheet" type="text/css" href="./css/imagecards.css">
+    <link rel="stylesheet/less" href="cake.less">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    
+</head>
+<body>
+    <div class="wrapper">
+        <div class="bar">
+            <span class="bar_content">
+              <p class="glow" onclick="PlaySound('song')" style="cursor:pointer"> 
+                  <span>
+                      <svg width="40px" height="40px" viewBox="0 0 16 16" class="bi bi-music-player-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 1a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V3zm7 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <circle cx="8" cy="11" r="1"/>
+                      </svg>
+                     
+                  </span> <span>Click karr ke toh dekhoooo</span><br>CLICK KARKE....😉</p>
+            </span>
+          </div>
+          
+          <div class="cols" id="cardparent"></div>
+         <div>
+        <center>
+            <a href="">KHATAM BYE BYE TATAA🙋🏻‍♀️🙋🏻‍♂️</a>
+        </center>
+        </div>
+    </div>
+    <!--  audio  -->
+    <audio id='song' src='assets/wohDin.mp3'/>
+
+</body>
+
+<script>
+var colors = [' #ef5777','#f9ca24', '#a55eea', '#fa8231', '#007bff', '#0be881'];
+
+var cardmsgs = 
+['Dukh is baat Ka Nhi ki tera bday bhi lockdown me Gaya dukh iss baat Ka hai ki kal muje Viva k liye padhayega kon😭<br> We spend hrs at a call & I feel tht\'s less too! <br><br>I wish & pray tht u get all the things u want & this birthday gives you more reasons to shine✨❤️ <br> I miss our small shopping together ☹️<br> Sending best wishes & virtual 🤗 on loop! <br> Happy Birthday Riya💃🤩',
+'Hamesha pareshan hi kiya hai tujhe toh kuch acha bolta hu aaj 😛 Bhale kabhi bolta nahi lekin mere dil ke boht kareeb hai tu behna😘😘. I hope duniya ki saari khushiyan tujhe mile♥️And I hope teri job jaldi shuru bhi hojaye aur achese tu set bhi hojaye and boht promotions bhi mile tujhe 😎 Happppiesst Birthdaayyy Riyuuu ❤️🤍💜💙💚💛',
+'Happy birthday Riya..<br><br>May god bless you with all the happiness and fulfill all your wishes..', 
+'Riyaaaa....Harsh.....Riyaaaaaaa\!<br>It all started from there and only we knew hum kiski le rahe h 😂😂 Happiest birthday Riyaaaa😘❤️❤️❤️ always be the same as you are, god bless you✨Hope to meet you soon, aur bhi masti karenge. Akola kab bula rahi h(mere ghar)😂😂❤️',
+'Happy Birthday Riya! Thankyou for being a friend to me who never fails to help me out! Whatever it is I know I can always count on you as you can on me! And I just hope you be the same decent, nicest girl with such a good heart! Just put yourself first before anyone. And I want the best for you! Love you so much. A very happy birthday Riyaaa ❤️❤️❤️❤️❤️',
+'Tu kitni sweet and caring hai and you think of others before yourself. Tere sath roz subah ready hone se leke deciding which earrings to wear and talking about small things that us bothering us in our lives, bohot homely feel hua and felt like I know you since a long time even though we just met. Mujhe bohot positive feel hua tere sath and kabhi akela feel nahi hone diya tune ❤',
+'Getting someone as awesome as me to send a birthday message to you, has undoubtedly been your biggest achievement this year. Happy birthday..',
+'Many Many Happy Return of the Day pagal<br> The person I know with a clean soul..😘❤️',
+'Happy birthday broo❤️❤️<br>You are most genuine and pure person I have ever met❤️❤️😘<br>Bohat pyaari bro hai Meri <br>Sab se zyada cute and sweet❤️<br>May waheguru bless you with everything you deserve❤️',
+'Wishing you a very happy birthday and may God bless you with all the happiness you deserve....<br>Ek min happiness toh 50% mil gayi hai coz tuje ye group Jo Mila hai 😝.... Tu lucky hai bahot Varna ajkal logo ko saanp🐍 k alava aur koi nhi milta 😂',
+
+
+];
+
+var names = ['Hemangi','Harshil', 'Rishabh', 'Harsh', 'Bhagyashree','Raashi',
+            'Saurabh', 'Gaurav',  'Geeta','Aditya',
+         ];
+
+
+    var cardcontainer= document.getElementById('cardparent');
+    for(var i=0; i<cardmsgs.length; i++){
+        var letter = String.fromCharCode(65+i);
+     
+        var newcard = ` <div class="col"  id="c`+i+`" >
+                <div class="container">
+                    <div class="front" style="background: `+colors[i%colors.length]+`">
+                        <div class="inner">
+                            <p class="cardtxt">`+cardmsgs[i]+`<br/><br/>~ `+names[i]+`</p>
+                        </div>
+                    </div>
+                    <div class="back" style="background-image: url('./assets/pics/a2z/`+String.fromCharCode(97+i)+`.jpg')">
+                        <div class="inner">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        cardcontainer.innerHTML += newcard;
+    }
+    
+
+
+    function PlaySound(soundobj) {
+        var thissound=document.getElementById(soundobj);
+    thissound.play();
+}
+
+
+function StopSound(soundobj) {
+    var thissound=document.getElementById(soundobj);
+    thissound.pause();
+    thissound.currentTime = 0;
+}
+</script>
+</html>

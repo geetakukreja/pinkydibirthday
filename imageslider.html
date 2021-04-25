@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/imageslider.css" type="text/css">
+    <title>Barbaadi!!!</title>
+</head>
+<body>
+    <div class="diy-slideshow" id="slider">
+    </div>  
+    <div>
+        <center>
+            <a href="./imagecards.html"><button id="clicker" class="btn btn-primary" onclick=""></button></a>
+        </center>
+    </div>
+    <audio id='song' src='assets/gaadiwala.mp3'/>
+</body>
+<script>
+    // for song
+    window.addEventListener('DOMContentLoaded', (event) => {
+        var thissound=document.getElementById('song');
+    thissound.play();
+    });
+
+
+    var sliderobj = document.getElementById('slider');
+    var content = `<figure class="show">
+            <img src="./assets/pics/images/1.jpg"/>
+        </figure>`;
+
+    sliderobj.innerHTML +=content;
+    var picsCount = 50;     //enter the no. of pics in images folder
+    for(var i=2; i<picsCount; i++){
+        var newcard = `<figure>
+            <img src="./assets/pics/images/`+i+`.jpg" />
+        </figure>`;
+        sliderobj.innerHTML +=newcard;
+    }
+    sliderobj.innerHTML += `<span class="prev">&laquo;</span> <span class="next">&raquo;</span>`;
+    
+    // skip cry
+    var clicker = document.getElementById('clicker');
+    var timer = 120;
+    var intervalc = setInterval(function(){    
+        clicker.innerHTML = timer+' s';
+        timer-=1;
+        if(timer==-2){
+            skipCry();
+        }
+    }, 1000);
+
+    function skipCry(){
+        clearInterval(intervalc);
+        clicker.innerHTML = "SKIP SLIDER >";
+    }
+</script>
+<script src="./js/slider.js"></script>
+</html>
+
+
